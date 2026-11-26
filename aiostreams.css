@@ -92,6 +92,10 @@ html[data-tv]{
 html[data-tv] [data-ui=hero-rows],html[data-host=desktop]:not([data-tv]) [data-ui=hero-rows]{container-type:size}
 html[data-tv] [data-ui=home-rows],html[data-host=desktop]:not([data-tv]) [data-ui=home-rows]{gap:0!important}
 html[data-tv] [data-ui=hero-rows] [data-ui=media-row],html[data-host=desktop]:not([data-tv]) [data-ui=hero-rows] [data-ui=media-row]{min-height:calc(100dvh - var(--hero-h));min-height:100cqh;margin:0!important;scroll-snap-align:start}
+/* The app fades the top 32px of the rows area, which dimmed the row title; the area already clips rows as they scroll, so the fade goes.
+   Each row is centred in the space below the hero (landscape rows are shorter than poster rows). */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=hero-rows]{-webkit-mask-image:none!important;mask-image:none!important}
+:is(html[data-tv],html[data-host=desktop]) [data-ui=hero-rows] [data-ui=media-row]{display:flex!important;flex-direction:column;justify-content:center;box-sizing:border-box}
 html[data-host=desktop]:not([data-tv]){
 [data-ui=hero-rows]{scroll-snap-type:y mandatory}
 }
