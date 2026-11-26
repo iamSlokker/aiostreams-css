@@ -5,7 +5,8 @@ html[data-tv]{
 &[data-nav=tv-top] [data-ui=top-tabs] [data-ui=nav-item]:focus-visible{outline:none!important;color:#fff!important;box-shadow:0 0 0 3px #fff!important}
 &[data-nav=tv-top] [data-ui=top-tabs] [data-ui=nav-item][aria-current=page]:focus-visible{color:#0b0b0f!important;box-shadow:0 0 0 2px rgb(0 0 0/.6),0 0 0 5px #fff!important}
 [data-ui=item-backdrop],[data-ui=hero-backdrops]{animation:none!important}
-[data-page],[data-ui=media-row-item]>div,[data-ui=card-grid]>div{animation:none!important;opacity:1!important;transform:none!important}
+[data-page],[data-ui=media-row-item]>div{animation:none!important;opacity:1!important;transform:none!important}
+[data-ui=card-grid]>div{animation:none!important}
 [data-ui=poster-card]:is(:hover,:focus-within) [data-ui=artwork],[data-ui=wide-card]:is(:hover,:focus-within) [data-ui=artwork]{transform:none!important}
 [data-ui=poster-card-animated]{display:none!important}
 [data-ui=art-wash] canvas{display:none!important}
@@ -520,3 +521,7 @@ display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto auto;c
 [data-ui=poster-card-text]{display:none!important}
 }
 :is(html[data-tv],html[data-host=desktop]) [data-ui=card-preview]{outline-color:#fff!important}
+/* The mouse-hover preview is sized from the card height and centred on the card, not snapped to the columns, so in the denser grids
+   slivers of the neighbours showed around it. While a hover preview is open (no focus push), the rest of the grid fades back. */
+html:has([data-ui=card-preview]:not(.invisible)) [data-ui=card-grid]:not(:has([data-previewed]))>*{opacity:.12!important;transition:opacity .25s!important}
+[data-ui=card-grid]>*{transition:opacity .25s,transform .25s}
