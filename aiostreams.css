@@ -304,3 +304,4 @@ html[data-tv] [data-ui=page-body]:has(>.UI-Tabs__root [data-ui=settings-tabs]){
 -webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#111115!important;box-shadow:none!important;
 [data-ui=settings-card-item],[data-ui=settings-tab]{transition:none!important}
 }
+html[data-tv] .UI-Modal__overlay:has([data-ui=dialog][data-name=versions]){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(0,0,0,.72)!important}
