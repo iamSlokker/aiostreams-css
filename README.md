@@ -18,6 +18,7 @@ What it changes:
 - **All episodes:** the season dialog fills the screen with a grid of 16:9 cards, text under the picture.
 - **More info:** the full overview opens as a centred card with the artwork on top.
 - **Discover:** the title, tabs, sort and pickers sit in one solid card above a denser poster grid; genres get their own row.
+- **Favourites:** the same card header as Discover with a denser poster grid, and a centred empty state with a heart.
 - **Activity (history):** each day is a row of posters with a short caption; a grouped show opens its episodes as cards beside the poster.
 - **Playlists:** the panel opens as a centred window with the playlists as square cover cards.
 - **Calendar:** a cleaner month grid with the month arrows on the right, today in white and a white ring on the focused day.

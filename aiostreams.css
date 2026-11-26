@@ -521,6 +521,30 @@ display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto auto;c
    slivers of the neighbours showed around it. While a hover preview is open (no focus push), the rest of the grid fades back. */
 html:has([data-ui=card-preview]:not(.invisible)) [data-ui=card-grid]:not(:has([data-previewed]))>*{opacity:.12!important;transition:opacity .25s!important}
 [data-ui=card-grid]>*{transition:opacity .25s,transform .25s}
+/* Favourites, layout FA1: like Discover - title, type tabs and sort in one solid card, a denser poster grid below, a centred empty state. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=favourites] [data-ui=page-body]>div:has(>[data-ui=pill-tabs][data-name=kind]){
+display:grid!important;grid-template-columns:auto minmax(0,1fr) auto auto;column-gap:10px;align-items:center;
+&::before{content:"";grid-row:1;grid-column:1/-1;align-self:stretch;border-radius:22px;background:#121217;border:1px solid rgba(255,255,255,.1)}
+>*{margin-top:0!important}
+>[data-ui=page-header]{display:contents!important}
+[data-ui=page-header]>div:first-child{grid-row:1;grid-column:1;z-index:1;margin:18px 0 18px 22px!important}
+[data-ui=page-title]{font-size:30px!important;font-weight:800!important}
+>[data-ui=pill-tabs]{grid-row:1;grid-column:3;z-index:1;background:rgba(255,255,255,.07)!important}
+[data-ui=page-actions]{grid-row:1;grid-column:4;z-index:1;margin:0 22px 0 0!important;width:auto!important;flex-wrap:nowrap!important;gap:10px!important}
+[data-ui=pill-tab]{color:#a4a4ad!important;background:none!important;font-weight:600!important;outline:none!important}
+[data-ui=pill-tab][aria-selected=true]{background:#fff!important;color:#0b0b0f!important}
+[data-ui=pill-tab]:focus-visible{box-shadow:0 0 0 2px #121217,0 0 0 4px #fff!important}
+[data-ui=page-actions] :is(.UI-Input__root,[role=combobox],button){height:38px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;border-color:transparent!important;font-weight:600}
+[data-ui=page-actions] button[data-name=sort-order]{width:38px!important;min-width:0!important;padding:0!important}
+[data-ui=page-actions] :is([role=combobox],button):focus-visible{box-shadow:0 0 0 2px #121217,0 0 0 4px #fff!important;outline:none!important}
+>div:has(>[data-ui=card-grid]){grid-row:2;grid-column:1/-1;margin-top:26px!important}
+>div:has(>[data-ui=card-grid]:empty){display:none}
+>:not([data-ui=page-header],[data-ui=pill-tabs],div:has(>[data-ui=card-grid])){grid-column:1/-1}
+[data-ui=card-grid]{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:14px!important}
+[data-ui=poster-card-text]{display:none!important}
+>p{display:flex;flex-direction:column;align-items:center;gap:14px;margin:110px auto 0!important;max-width:420px;text-align:center;font-size:15px;line-height:1.5;color:#9a9aa3!important}
+>p::before{content:"";width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.07) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z'/%3E%3C/svg%3E") center/30px no-repeat}
+}
 /* History (Activity), layout HI3: each day is a row of posters with a short caption under each, like the home rows. */
 :is(html[data-tv],html[data-host=desktop]) [data-page=history]{
 [data-ui=history-day] [data-ui=section-title]{font-size:17px!important;font-weight:700!important}
