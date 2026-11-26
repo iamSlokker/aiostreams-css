@@ -198,3 +198,38 @@ html:not([data-tv]) [data-ui=dialog][data-name=versions]{
 padding-top:30px!important;
 >button:last-child{top:58px!important;right:20px!important}
 }
+
+/* Player: P2 minimal HUD with the M1 middle trio, then the app's own pause screen styled as P3. TV and desktop. */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=player-controls]{
+[data-ui=player-middle]{gap:34px!important}
+[data-ui=player-middle-button]{display:flex!important;width:60px!important;height:60px!important;font-size:26px!important;color:#fff!important;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(20,20,26,.45)!important;border:1px solid rgba(255,255,255,.18)!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 36px rgba(0,0,0,.35)!important;outline:none!important;transition:opacity .3s,background-color .15s,color .15s,box-shadow .15s!important}
+[data-ui=player-middle-button][data-name=play]{width:92px!important;height:92px!important;font-size:38px!important}
+[data-ui=player-middle-button]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.18)!important}
+[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]),[data-ui=player-button][data-name=party]{display:none!important}
+[data-ui=player-bottom-bar]{display:flex!important;flex-direction:column;padding:90px 48px 24px!important}
+[data-ui=player-bottom-bar]>div:last-child{order:-1;justify-content:flex-end;margin-bottom:10px}
+[data-ui=player-bottom-bar]>div:last-child>.ms-auto{margin-left:0!important}
+[data-ui=player-info]{padding:0 2px 2px!important}
+[data-ui=player-time]{color:#fff!important;font-weight:600}
+[data-ui=player-ends]{color:#a4a4ad!important}
+[data-ui=seek-bar-track]{height:3px!important;background:rgba(255,255,255,.22)!important}
+[data-ui=seek-bar-progress]{background:#fff!important}
+[data-ui=seek-bar-buffered]{background:rgba(255,255,255,.3)!important}
+[data-ui=seek-bar-thumb]{width:12px!important;height:12px!important;background:#fff!important}
+[data-ui=player-button]{color:rgba(255,255,255,.88)!important}
+[data-ui=play-flash]{display:none!important}
+[data-ui=player-title]{position:fixed;left:50px;bottom:112px;color:#fff;max-width:42vw;font-size:15px!important}
+[data-ui=player-title] [data-name=name]{font-size:24px;font-weight:700;line-height:1.2}
+[data-ui=player-title] [data-name=detail]{order:-1;font-size:14px!important;font-weight:600;color:rgba(255,255,255,.72)!important}
+[data-ui=player-title]{display:flex!important;flex-direction:column}
+[data-ui=pause-screen]{background:rgba(0,0,0,.45)!important}
+[data-ui=pause-screen]>div:last-child{max-width:min(40rem,60vw)!important;padding-left:max(3.5rem,6vw)!important}
+[data-ui=pause-logo]{max-height:120px!important;max-width:340px!important}
+[data-ui=pause-episode-title]{font-size:20px!important}
+[data-ui=pause-overview]{font-size:16px!important;line-height:1.55!important;color:#d6d6dc!important;-webkit-line-clamp:3!important}
+[data-ui=pause-screen]>div:last-child::after{content:"PAUSED";display:inline-flex;margin-top:18px;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);font-size:12px;font-weight:700;letter-spacing:.16em;color:#d0d0d8}
+&:has([data-ui=pause-screen][data-visible]){
+[data-ui=player-top-bar],[data-ui=player-bottom-bar]{opacity:1!important;background:none!important;z-index:2}
+[data-ui=player-top-bar]>:not([data-ui=player-top-end]),[data-ui=player-top-end]>:not([data-ui=player-clock]),[data-ui=player-bottom-bar]>div:last-child,[data-ui=seek-bar-thumb],[data-ui=player-ends]{opacity:0!important}
+}
+}
