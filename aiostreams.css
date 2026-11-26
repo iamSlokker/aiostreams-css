@@ -105,6 +105,7 @@ html[data-tv]{
 [data-ui=item-trailer]{left:30%!important}
 [data-ui=item-trailer]>div:first-child>div:first-child{background:linear-gradient(to right,var(--background),transparent 20%)!important}
 [data-ui=item-trailer]>div:first-child>div:nth-child(2){height:28%!important}
+&:has([data-ui=item-page]) [data-ui=page-background][style*="url(%23s)"]{-webkit-mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important;mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important}
 [data-ui=item-trailer-hint]{left:40%!important;justify-content:flex-end!important}
 }
 html[data-tv] [data-ui=item-page]{
