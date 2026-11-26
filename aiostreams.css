@@ -232,7 +232,7 @@ padding-top:30px!important;
 [data-ui=player-middle-button]{display:flex!important;width:60px!important;height:60px!important;font-size:26px!important;color:#fff!important;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(20,20,26,.45)!important;border:1px solid rgba(255,255,255,.18)!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 36px rgba(0,0,0,.35)!important;outline:none!important;transition:opacity .3s,background-color .15s,color .15s,box-shadow .15s!important}
 [data-ui=player-middle-button][data-name=play]{width:92px!important;height:92px!important;font-size:38px!important}
 [data-ui=player-middle-button]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.18)!important}
-[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]),[data-ui=player-button][data-name=party]{display:none!important}
+[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]){display:none!important}
 [data-ui=player-bottom-bar]{display:flex!important;flex-direction:column;padding:90px 48px 24px!important}
 [data-ui=player-bottom-bar]>div:last-child{order:-1;justify-content:flex-end;margin-bottom:10px}
 [data-ui=player-bottom-bar]>div:last-child>.ms-auto{margin-left:0!important}
@@ -619,3 +619,34 @@ min-width:300px!important;max-width:360px;padding:10px!important;border-radius:2
 [role=separator]{margin:6px 12px!important;background:rgba(255,255,255,.08)!important}
 }
 :is(html[data-tv],html[data-host=desktop]) [data-sonner-toast]{background:#16161b!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:16px!important;color:#fff!important;box-shadow:0 20px 50px rgba(0,0,0,.55)!important;font-weight:600}
+/* Watch party, layout WP1: the party drawer as a solid side sheet; big invite code with the QR beside it on TV, pill tabs, white bubbles for your own messages; dark bubbles on the video. */
+:is(html[data-tv],html[data-host=desktop]){
+[data-ui=dialog][data-name=party]{
+width:440px!important;max-width:calc(100vw - 24px)!important;background:#16161b!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:24px!important;box-shadow:-24px 0 60px rgba(0,0,0,.5)!important;padding-top:12px!important;
+.UI-Drawer__title{font-size:22px!important;font-weight:800!important}
+[data-ui=party-section]>h3{font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;color:#9a9aa3!important}
+[data-ui=party-relay]{border-radius:16px!important;border-color:rgba(255,255,255,.1)!important;background:rgba(255,255,255,.04)!important;outline:none!important}
+[data-ui=party-relay][aria-checked=true]{border-color:rgba(255,255,255,.5)!important;background:rgba(255,255,255,.08)!important}
+[data-ui=party-relay]:focus-visible{box-shadow:0 0 0 2px #16161b,0 0 0 4px #fff!important}
+.UI-Input__root{height:44px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.1)!important}
+.UI-Button__root{border-radius:999px!important;font-weight:700!important;outline:none!important}
+.UI-Button__root:focus-visible{box-shadow:0 0 0 2px #16161b,0 0 0 4px #fff!important}
+div:has(>[data-ui=party-code]){border-radius:18px!important;background:rgba(255,255,255,.05)!important}
+div:has(>[data-ui=party-code]):has(>div){display:grid!important;grid-template-columns:auto 1fr;column-gap:16px;align-items:center;text-align:left!important}
+div:has(>[data-ui=party-code])>div{grid-row:1/span 2;grid-column:1;width:120px!important;margin:0!important;border-radius:10px!important}
+[data-ui=party-code]{font-size:30px!important;font-weight:700!important;letter-spacing:.12em!important}
+[data-ui=party-tabs]{padding:4px!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important}
+[data-ui=party-tabs] [role=tab]{color:#a4a4ad!important;font-weight:600!important;outline:none!important}
+[data-ui=party-tabs] [role=tab][data-state=active]{background:#fff!important;color:#0b0b0f!important}
+[data-ui=party-tabs] [role=tab]:focus-visible{box-shadow:0 0 0 2px #16161b,0 0 0 4px #fff!important}
+[data-ui=party-message]>p{border-radius:16px!important;font-size:14px!important}
+[data-ui=party-message][data-you]>p{background:#fff!important;color:#0b0b0f!important}
+[data-ui=party-message]:not([data-you])>p{background:rgba(255,255,255,.08)!important}
+[data-ui=party-message]>span:first-child{font-weight:700!important;color:#c9c9d1!important}
+[data-ui=party-member]{border-radius:12px!important}
+[data-ui=party-member] .text-sm{font-weight:700!important}
+}
+&[data-tv] [data-ui=dialog][data-name=party]{top:0!important;right:0!important;bottom:0!important;left:auto!important;height:auto!important;max-height:none!important;margin:0!important;border:0!important;border-left:1px solid rgba(255,255,255,.08)!important;border-radius:28px 0 0 28px!important}
+[data-ui=party-bubble]{padding:8px 14px!important;border-radius:16px!important;background:rgba(14,14,18,.85)!important;font-size:14px!important}
+:is([data-ui=party-status],[data-ui=party-action]){background:rgba(14,14,18,.85)!important}
+}
