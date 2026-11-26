@@ -103,6 +103,8 @@ html[data-tv] [data-ui=item-page]{
 }
 html[data-tv]{
 [data-ui=item-trailer]{left:30%!important}
+[data-ui=item-trailer]>div:first-child>div:first-child{background:linear-gradient(to right,var(--background),transparent 20%)!important}
+[data-ui=item-trailer]>div:first-child>div:nth-child(2){height:28%!important}
 [data-ui=item-trailer-hint]{left:40%!important;justify-content:flex-end!important}
 }
 html[data-tv] [data-ui=item-page]{
