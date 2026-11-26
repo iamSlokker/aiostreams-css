@@ -157,15 +157,25 @@ html[data-tv] [data-ui=item-page] [data-ui=item-body] [data-ui=media-row-nav]{di
 [data-ui=season-poster]>:not([data-ui=season-name]):not([data-ui=season-indicator]){display:none!important}
 [data-ui=media-row]:has([data-ui=season-poster]) [data-ui=media-row-item]{flex-basis:auto!important}
 [data-ui=media-row]:has([data-ui=season-poster]) [data-ui=media-row-title]{display:none!important}
-[data-ui=season-name]{font-size:15px!important;font-weight:600!important}
-[data-ui=media-row]:has([data-ui=episode-card]) [data-ui=media-row-item]{flex-basis:19.5rem!important}
+/* Episodes, layout E1: seasons as pills (white = current), a row of 16:9 cards with the text under the picture. */
+[data-ui=season-poster]{width:auto!important;padding:8px 16px!important;border-radius:999px;background:rgba(255,255,255,.08);transition:background-color .15s,color .15s}
+[data-ui=season-poster] [data-ui=season-name]{font-size:14px!important;font-weight:600!important;color:#c9c9d1!important}
+[data-ui=season-poster][aria-selected=true]{background:#fff}
+[data-ui=season-poster][aria-selected=true] [data-ui=season-name]{color:#0b0b0f!important}
+[data-ui=season-poster]:focus-visible{outline:none!important;box-shadow:0 0 0 3px #070707,0 0 0 5px #fff}
+[data-ui=season-indicator]{display:none!important}
+[data-ui=media-row]:has([data-ui=season-poster]) [data-ui=media-row-item]{padding-left:8px!important}
+[data-ui=media-row]:has([data-ui=episode-card]) [data-ui=media-row-item]{flex-basis:18.5rem!important}
 [data-ui=episode-card]>*{margin-top:0!important}
-[data-ui=episode-image]{border-radius:12px!important}
-[data-ui=episode-image]::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,.35) 55%,transparent 80%)}
-[data-ui=episode-head]{position:absolute!important;left:0;right:0;bottom:2.55rem;z-index:2;padding:0 .75rem!important;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-[data-ui=episode-title]::before{top:auto!important;bottom:-2.55rem!important}
-[data-ui=episode-meta]{color:#cfcfd6!important}
-[data-ui=episode-synopsis]{position:absolute!important;left:.75rem;right:.75rem;bottom:.6rem;z-index:2;margin:0!important;padding:0!important;font-size:11px!important;line-height:1.35!important;-webkit-line-clamp:2!important;color:#c4c4cc!important}
+[data-ui=episode-image]{border-radius:12px!important;--tw-ring-color:transparent!important}
+[data-ui=episode-image] [data-ui=watched-badge]{background:#fff!important;color:#0b0b0f!important;box-shadow:0 2px 8px rgba(0,0,0,.4)!important}
+[data-ui=episode-image] [data-ui=progress-bar]{left:10px!important;right:10px!important;bottom:10px!important;height:4px!important;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.25)!important}
+[data-ui=episode-image] [data-ui=progress-bar-fill]{background:#fff!important;border-radius:2px}
+[data-ui=episode-head]{padding:10px 0 0!important}
+[data-ui=episode-title]{font-size:15px!important;font-weight:700!important}
+[data-ui=episode-meta]{margin-top:2px!important;font-size:12px!important;font-weight:600;color:#9a9aa3!important}
+[data-ui=episode-synopsis]{margin-top:4px!important;padding:0!important;font-size:12.5px!important;line-height:1.45!important;-webkit-line-clamp:2!important;color:#a4a4ad!important}
+[data-ui=episode-card]:has([data-ui=episode-title]:focus-visible) [data-ui=episode-image]{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff}
 }
 /* Versions list, layout V1: a side sheet on the right, no filter bar. TV and desktop. */
 .UI-Modal__overlay:has([data-ui=dialog][data-name=versions]){
@@ -305,3 +315,61 @@ html[data-tv] [data-ui=page-body]:has(>.UI-Tabs__root [data-ui=settings-tabs]){
 [data-ui=settings-card-item],[data-ui=settings-tab]{transition:none!important}
 }
 html[data-tv] .UI-Modal__overlay:has([data-ui=dialog][data-name=versions]){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(0,0,0,.72)!important}
+
+/* Player menus, layout PM2: each icon opens a small solid card above the icon row; the focused row is white. No blur (TV speed). */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=player-menu]{
+min-width:300px!important;max-width:min(380px,90vw)!important;padding:8px!important;border-radius:18px!important;background:rgba(18,18,23,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 60px rgba(0,0,0,.6)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+[role=menuitem]{transition:none!important;gap:12px!important;padding:11px 14px!important;border-radius:12px!important;font-size:15px!important;font-weight:600!important;color:#e4e4ea!important;outline:none!important}
+[role=menuitem] svg{font-size:18px}
+[role=menuitem]:is([data-highlighted],:focus-visible){background:#fff!important;color:#0b0b0f!important}
+[data-name=detail]{display:block;margin-top:2px;font-size:12px!important;font-weight:500;color:#9a9aa3!important}
+[role=menuitem]:is([data-highlighted],:focus-visible) :is([data-name=detail],.text-\[--muted\]){color:#55555e!important}
+[data-ui=player-menu-item][data-selected]{font-weight:700!important}
+[data-ui=player-menu-pages]{margin-bottom:6px!important;padding-bottom:6px!important;border-color:rgba(255,255,255,.08)!important}
+[data-ui=player-menu-action][data-name=back]{color:#fff}
+}
+
+/* Player extras, layout X2 with the X1 "Up next" card: white Skip button, seek preview with a white frame, Up next card with the still on top. */
+:is(html[data-tv],html[data-host=desktop]){
+[data-ui=skip-segment] .UI-Button__root{height:48px!important;padding:0 22px!important;border-radius:12px!important;border:0!important;background:#fff!important;color:#0b0b0f!important;font-size:15px!important;font-weight:800!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 10px 30px rgba(0,0,0,.4)!important}
+[data-ui=skip-segment] .UI-Button__root:focus-visible{outline:none!important;box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+[data-ui=seek-bar-tooltip]:has([data-ui=seek-bar-thumbnail]){width:220px!important;--half:110px!important;bottom:72px!important;gap:8px!important}
+[data-ui=seek-bar-thumbnail]{border-radius:12px!important;box-shadow:0 0 0 3px #fff,0 14px 34px rgba(0,0,0,.6)!important;--tw-ring-color:transparent!important}
+[data-ui=seek-bar-tooltip]>span{background:none!important;padding:0!important;font-size:14px!important;font-weight:700;text-shadow:0 1px 4px #000}
+[data-ui=next-episode-card]{width:340px!important;border-radius:20px!important;border:1px solid rgba(255,255,255,.14)!important;background:rgba(20,20,26,.94)!important;box-shadow:0 24px 60px rgba(0,0,0,.6)!important}
+[data-ui=next-episode-card]>div:not([data-ui=next-episode-countdown]){padding:14px 16px 16px!important}
+[data-ui=next-episode-card] p:first-child{font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;color:#c9c9d1!important}
+[data-ui=next-episode-card] p.font-semibold{font-size:15px!important;font-weight:700!important}
+[data-ui=next-episode-action]{height:38px!important;padding:0 16px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+[data-ui=next-episode-action][data-name=play]{background:#fff!important;color:#0b0b0f!important}
+[data-ui=next-episode-action][data-name=hide]{flex:none;background:rgba(255,255,255,.12)!important;color:#fff!important}
+[data-ui=next-episode-action]:focus-visible{outline:none!important;box-shadow:0 0 0 3px #141419,0 0 0 5px #fff!important}
+[data-ui=next-episode-action][data-name=hide]:focus-visible{background:#fff!important;color:#0b0b0f!important}
+[data-ui=next-episode-countdown]{height:3px!important;background:rgba(255,255,255,.12)!important}
+}
+
+/* Search, layout SR1: big centred field, recent searches as chips, suggestions in two columns, results rows below. */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=page-body]:has([data-ui=search-input]){
+>[data-ui=page-title]{display:none!important}
+>div:has([data-ui=search-input]){width:100%;max-width:760px!important;margin:28px auto 0!important;gap:12px!important}
+[data-ui=search-input]{height:64px!important;padding-left:62px!important;padding-right:56px!important;border-radius:999px!important;font-size:22px!important;font-weight:600!important;background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:none!important;outline:none!important}
+[data-ui=search-input]:focus{border-color:rgba(255,255,255,.5)!important}
+&:is(html[data-tv] *) [data-ui=search-input]:focus-visible{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+.UI-Input__inputContainer:has([data-ui=search-input])>.UI-Input__addons--icon{width:62px;color:#fff}
+.UI-Input__inputContainer:has([data-ui=search-input])>.UI-Input__addons--icon svg{width:22px;height:22px}
+.UI-Input__inputContainer:has([data-ui=search-input])>:last-child:not(input){right:12px}
+[data-ui=search-voice]{width:64px!important;height:64px!important;font-size:22px!important;border-radius:50%!important;background:rgba(255,255,255,.1)!important;border:0!important;color:#fff!important}
+[data-ui=search-voice]:focus-visible{background:#fff!important;color:#0b0b0f!important;box-shadow:0 0 0 6px rgba(255,255,255,.18)!important}
+[data-ui=search-suggestions]{display:grid!important;grid-template-columns:1fr 1fr;gap:2px 16px;max-width:760px!important;margin:16px auto 0!important;padding:0!important}
+[data-ui=search-suggestion]>button{padding:10px 14px!important;border-radius:10px!important;font-size:15px;font-weight:600}
+[data-ui=search-suggestion]>button>span:last-child:not(:nth-child(2)){margin-left:auto;font-weight:500}
+[data-ui=search-history]{max-width:760px!important;margin:18px auto 0!important;text-align:center}
+[data-ui=search-history]>div:first-child{justify-content:center!important;gap:14px!important}
+[data-ui=search-history]>ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0 0!important}
+[data-ui=search-history-item]{border-radius:999px!important;background:rgba(255,255,255,.07);font-size:14px;font-weight:600}
+[data-ui=search-history-item]>button,[data-ui=search-history-item]>*>button{padding:7px 14px!important;gap:6px!important;border-radius:999px!important}
+[data-ui=search-history-item]>.UI-Button__root{margin:0 4px 0 -8px!important}
+:is([data-ui=search-suggestion],[data-ui=search-history-item]) button:focus-visible{background:#fff!important;color:#0b0b0f!important}
+:is([data-ui=search-suggestion],[data-ui=search-history-item]) button:focus-visible *{color:inherit!important}
+[data-ui=search-results]{margin-top:40px!important}
+}
