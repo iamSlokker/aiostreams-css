@@ -102,11 +102,23 @@ html[data-host=desktop]:not([data-tv]){
 [data-ui=item-backdrop-shade][data-name=bottom]{height:40%!important}
 }
 :is(html[data-tv],html[data-host=desktop]){
-[data-ui=item-trailer]{left:30%!important}
-[data-ui=item-trailer]>div:first-child>div:first-child{background:linear-gradient(to right,var(--background),transparent 20%)!important}
-[data-ui=item-trailer]>div:first-child>div:nth-child(2){height:28%!important}
-&:has([data-ui=item-page]) [data-ui=page-background][style*="url(%23s)"]{-webkit-mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important;mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important}
+[data-ui=item-trailer]>div:first-child>div:first-child{background:linear-gradient(to right,var(--background),transparent 55%)!important}
+[data-ui=item-trailer]>div:first-child>div:nth-child(2){height:30%!important}
+&:has([data-ui=item-page]) [data-ui=page-background][style*="url(%23s)"]{-webkit-mask-image:linear-gradient(to right,#000,rgba(0,0,0,.85) 22%,transparent 55%),linear-gradient(to bottom,transparent 72%,#000)!important;mask-image:linear-gradient(to right,#000,rgba(0,0,0,.85) 22%,transparent 55%),linear-gradient(to bottom,transparent 72%,#000)!important}
 [data-ui=item-trailer-hint]{left:40%!important;justify-content:flex-end!important}
+}
+/* Title page trailer: about 5 s after it starts, the layout and the shade fade out and the trailer plays alone.
+   It comes back when the focus moves (arrow keys) or the mouse is over the info column, then fades again. */
+@keyframes aio-imm-a{0%,75%{opacity:1}100%{opacity:0}}
+@keyframes aio-imm-b{0%,75%{opacity:1}100%{opacity:0}}
+:is(html[data-tv],html[data-host=desktop]):has([data-ui=item-page] [data-ui=item-trailer-hint][aria-hidden=false]){
+:is([data-ui=item-body],[data-ui=item-trailer-hint],[data-ui=page-background]){animation:aio-imm-a 6.5s ease-in forwards!important}
+&:has([data-ui=item-page] :focus-visible:nth-child(even)) :is([data-ui=item-body],[data-ui=item-trailer-hint],[data-ui=page-background]){animation-name:aio-imm-b!important}
+&:has([data-ui=item-header]:hover) :is([data-ui=item-body],[data-ui=item-trailer-hint],[data-ui=page-background]){animation:none!important}
+}
+html[data-tv]:has([data-ui=item-page] [data-ui=item-trailer-hint][aria-hidden=false]){
+[data-ui=top-tabs]{animation:aio-imm-a 6.5s ease-in forwards!important}
+&:has([data-ui=item-page] :focus-visible:nth-child(even)) [data-ui=top-tabs]{animation-name:aio-imm-b!important}
 }
 html[data-tv] [data-ui=item-page] [data-ui=item-body] [data-ui=media-row-nav]{display:none!important}
 :is(html[data-tv],html[data-host=desktop]) [data-ui=item-page]{
