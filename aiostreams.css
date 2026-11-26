@@ -572,7 +572,7 @@ display:grid!important;grid-template-columns:minmax(0,1fr) 380px;align-items:cen
 >[data-ui=playlists-header]{grid-row:1;grid-column:1;padding:0!important}
 >[data-ui=playlists-header] p{font-size:24px!important;font-weight:800!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
 >div:has(>[data-ui=playlist-name-form]){grid-row:1;grid-column:2;border:0!important;padding:0 44px 0 0!important}
->[data-ui=playlists-list]{grid-row:2;grid-column:1/-1;border:0!important;padding:22px 0 0!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-content:start}
+>[data-ui=playlists-list]{grid-row:2;grid-column:1/-1;border:0!important;padding:22px 8px 8px!important;margin:0 -8px -8px!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-content:start}
 >[data-ui=playlists-list]>*{margin:0!important}
 >[data-ui=playlists-list]>p{grid-column:1/-1}
 >button:last-child{top:28px!important;right:26px!important;width:38px;height:38px;border-radius:50%!important;background:rgba(255,255,255,.1)!important;color:#fff!important}
