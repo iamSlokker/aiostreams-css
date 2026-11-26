@@ -18,6 +18,8 @@ What it changes:
 - **All episodes:** the season dialog fills the screen with a grid of 16:9 cards, text under the picture.
 - **More info:** the full overview opens as a centred card with the artwork on top.
 - **Discover:** the title, tabs, sort and pickers sit in one solid card above a denser poster grid; genres get their own row.
+- **Activity (history):** each day is a row of posters with a short caption; a grouped show opens its episodes as cards beside the poster.
+- **Playlists:** the panel opens as a centred window with the playlists as square cover cards.
 - **Versions list:** a side sheet on the right with big cards and a white focus ring, without the filter bar.
 - **Player:** a minimal HUD with a big middle play button between back and forward, then a pause screen with the logo, overview, a PAUSED pill, the clock and the time.
 - **Player menus and extras:** subtitle, audio and other menus are small solid cards with a white focused row. The Skip button is white, the seek preview has a white frame, and the Up next card shows the still on top.
