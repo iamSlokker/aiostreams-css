@@ -299,3 +299,8 @@ html[data-tv] [data-ui=player-controls]{
 &:has([data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]:focus-visible)::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b0b0f'%3E%3Crect x='6' y='4.5' width='4' height='15' rx='1'/%3E%3Crect x='14' y='4.5' width='4' height='15' rx='1'/%3E%3C/svg%3E") center/38px no-repeat,#fff;border-color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.18)}
 &[data-paused]:has([data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]:focus-visible)::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b0b0f'%3E%3Cpath d='M7.5 4.5v15l12-7.5z'/%3E%3C/svg%3E") center/38px no-repeat,#fff}
 }
+/* Settings on TV: no blur, no big shadow and no transitions on the sheet; they made scrolling and focus moves slow on the Shield. */
+html[data-tv] [data-ui=page-body]:has(>.UI-Tabs__root [data-ui=settings-tabs]){
+-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#111115!important;box-shadow:none!important;
+[data-ui=settings-card-item],[data-ui=settings-tab]{transition:none!important}
+}
