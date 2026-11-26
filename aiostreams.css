@@ -380,6 +380,24 @@ display:grid!important;grid-template-columns:330px minmax(0,1fr);column-gap:44px
 [data-ui=search-results]>*+*{margin-top:28px!important}
 }
 
+/* Sign-in screens share the PU1 look: plain dark background with a soft light at the top, big titles. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=sign-in]{background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.07),transparent 60%),#070707!important}
+:is(html[data-tv],html[data-host=desktop]) [data-page=sign-in] [data-ui=page-title]{font-size:36px!important;font-weight:800!important;letter-spacing:-.01em;line-height:1.2!important;color:#fff}
+/* Choose a server: no logo, solid dark cards with a white ring on the focused one, the add tile matches. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=sign-in][data-name=servers]{
+[data-ui=brand-logo]{display:none!important}
+[data-ui=servers]{gap:20px!important;margin-top:48px!important}
+[data-ui=servers]>li{width:300px!important}
+[data-ui=server]>button,[data-ui=servers]>li>button{border-radius:20px!important;outline:none!important;transition:box-shadow .15s,border-color .15s!important}
+[data-ui=server]>button{background:#121217!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 20px 50px rgba(0,0,0,.45)!important}
+[data-ui=server]>button>span:last-child{padding:16px 18px 18px!important}
+[data-ui=server]>button .font-semibold{font-size:18px!important;font-weight:700!important}
+[data-ui=servers]>li:not([data-ui=server])>button{min-height:100%!important;border:1px dashed rgba(255,255,255,.25)!important;font-size:15px!important;font-weight:600;color:#9a9aa3!important}
+[data-ui=servers]>li:not([data-ui=server])>button>span{width:56px!important;height:56px!important;background:rgba(255,255,255,.08)!important;color:#fff}
+:is([data-ui=server]>button,[data-ui=servers]>li>button):is(:focus-visible,:hover){border-color:transparent!important;box-shadow:0 0 0 4px #070707,0 0 0 8px #fff!important;color:#fff!important}
+[data-ui=server] .UI-Button__root{background:rgba(0,0,0,.45)!important;color:#fff!important}
+[data-ui=server] .UI-Button__root:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;outline:none!important}
+}
 /* Profile picker, layout PU1: big circles, white ring on the focused one, no logo, quiet pill links. Also the PIN step that follows. */
 :is(html[data-tv],html[data-host=desktop]) [data-page=sign-in][data-name=user-picker]{
 background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.07),transparent 60%),#070707!important;
