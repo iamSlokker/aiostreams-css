@@ -608,3 +608,14 @@ display:grid!important;grid-template-columns:minmax(0,1fr) 380px;align-items:cen
 [data-ui=calendar-entry]:not([data-watched])>p:first-child{color:#fff!important}
 [data-ui=calendar-entry]>p:last-child{font-size:11px!important;font-weight:600;color:#c9c9d1!important}
 }
+/* Card menu, layout PN2: text only, a small title line, roomy rows; the focused one is a white pill; the watched actions are dimmed. Notices match. */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=item-menu]{
+min-width:300px!important;max-width:360px;padding:10px!important;border-radius:24px!important;background:rgba(14,14,18,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 60px rgba(0,0,0,.6)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+.UI-ContextMenu__label{padding:6px 16px 8px!important;font-size:11px!important;font-weight:700!important;letter-spacing:.14em;text-transform:uppercase;color:#6f6f78!important}
+[role=menuitem]{padding:9px 16px!important;border-radius:999px!important;font-size:15px!important;font-weight:600!important;color:#e4e4ea!important;outline:none!important;transition:none!important}
+[role=menuitem] svg{display:none!important}
+[role=separator]~[role=menuitem]{color:#a4a4ad!important}
+[role=menuitem]:is([data-highlighted],:focus-visible){background:#fff!important;color:#0b0b0f!important}
+[role=separator]{margin:6px 12px!important;background:rgba(255,255,255,.08)!important}
+}
+:is(html[data-tv],html[data-host=desktop]) [data-sonner-toast]{background:#16161b!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:16px!important;color:#fff!important;box-shadow:0 20px 50px rgba(0,0,0,.55)!important;font-weight:600}

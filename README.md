@@ -21,6 +21,7 @@ What it changes:
 - **Activity (history):** each day is a row of posters with a short caption; a grouped show opens its episodes as cards beside the poster.
 - **Playlists:** the panel opens as a centred window with the playlists as square cover cards.
 - **Calendar:** a cleaner month grid with the month arrows on the right, today in white and a white ring on the focused day.
+- **Card menu:** text-only rows with a small title line; the focused row is a white pill and the watched actions are dimmed. Notices match the dark panels.
 - **Versions list:** a side sheet on the right with big cards and a white focus ring, without the filter bar.
 - **Player:** a minimal HUD with a big middle play button between back and forward, then a pause screen with the logo, overview, a PAUSED pill, the clock and the time.
 - **Player menus and extras:** subtitle, audio and other menus are small solid cards with a white focused row. The Skip button is white, the seek preview has a white frame, and the Up next card shows the still on top.
