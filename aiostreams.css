@@ -348,7 +348,8 @@ min-width:300px!important;max-width:min(380px,90vw)!important;padding:8px!import
 [data-ui=next-episode-countdown]{height:3px!important;background:rgba(255,255,255,.12)!important}
 }
 
-/* Search, layout SR2: field, suggestions and recent searches in a left column; results as poster grids on the right. */
+/* Search, layout SR2: field, suggestions and recent searches in a left column; the result rows on the right.
+   The rows stay rows: the app grows a focused card into a trailer preview and pushes its neighbours sideways, which breaks in a wrapped grid. */
 :is(html[data-tv],html[data-host=desktop]) [data-ui=page-body]:has([data-ui=search-input]){
 display:grid!important;grid-template-columns:330px minmax(0,1fr);column-gap:44px;align-items:start;align-content:start;padding-top:8px!important;
 >*{grid-column:1;margin:0!important}
@@ -373,12 +374,4 @@ display:grid!important;grid-template-columns:330px minmax(0,1fr);column-gap:44px
 :is([data-ui=search-suggestion],[data-ui=search-history-item]) button:focus-visible *{color:inherit!important}
 [data-ui=search-results]{margin:0!important}
 [data-ui=search-results]>*+*{margin-top:28px!important}
-[data-ui=search-results] [data-ui=media-row-nav]{display:none!important}
-[data-ui=search-results] :is([data-glide-layer],.UI-Carousel__innerContent){transform:none!important}
-[data-ui=search-results] .UI-Carousel__content{overflow:visible!important;margin:0!important;padding:0!important}
-[data-ui=search-results] .UI-Carousel__innerContent{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:16px 14px;margin:12px 0 0!important;padding:0!important}
-[data-ui=search-results] .UI-Carousel__innerContent::after{display:none!important}
-[data-ui=search-results] section[data-shape=wide] .UI-Carousel__innerContent{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-[data-ui=search-results] section[data-shape=square] .UI-Carousel__innerContent{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}
-[data-ui=search-results] [data-ui=media-row-item]{flex:none!important;width:auto!important;max-width:none!important;min-width:0;padding:0!important;margin:0!important}
 }
