@@ -287,14 +287,15 @@ border-radius:26px;background:rgba(12,12,16,.74);border:1px solid rgba(255,255,2
 [data-ui=settings-card-item] .UI-Button__root{background:rgba(255,255,255,.1)!important;border-color:transparent!important;color:#fff!important}
 }
 
-/* Player on TV: the app does not draw the middle buttons there, so the bottom play/back/forward move to the centre as the trio. Focused buttons turn white. */
+/* Player on TV: the app does not draw the middle buttons there and moving its play button breaks D-pad navigation.
+   So the bottom play stays where it is (invisible) and a big circle in the middle shows the state; it turns white when play is focused. */
 :is(html[data-tv],html[data-host=desktop]) [data-ui=player-controls] [data-ui=player-button]:focus-visible{background:#fff!important;color:#0b0b0f!important;box-shadow:0 0 0 6px rgba(255,255,255,.18)!important}
 html[data-tv] [data-ui=player-controls]{
-[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]){display:flex!important;width:60px!important;height:60px!important;font-size:26px!important;color:#fff!important;background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(20,20,26,.45)!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 36px rgba(0,0,0,.35)!important}
-[data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]{width:92px!important;height:92px!important;font-size:38px!important}
-[data-ui=player-bottom-bar] [data-ui=player-button][data-name=previous]{order:-2}
-[data-ui=player-bottom-bar] [data-ui=player-button][data-name=back]{order:-1}
-[data-ui=player-bottom-bar] [data-ui=player-button][data-name=next]{order:2}
-[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]):focus-visible{background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.18)!important}
-[data-ui=player-bottom-bar]>div:last-child>div:has(>[data-ui=player-button][data-name=play]){position:fixed!important;left:50%;top:50%;transform:translate(-50%,-50%);display:flex!important;align-items:center;gap:34px!important}
+[data-ui=player-bottom-bar] [data-ui=player-button]:is([data-name=play],[data-name=back],[data-name=forward],[data-name=previous],[data-name=next]){display:flex!important}
+[data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]{opacity:0!important}
+&::after{content:"";position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;pointer-events:none;box-sizing:border-box;border:1px solid rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 12px 36px rgba(0,0,0,.35);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Crect x='6' y='4.5' width='4' height='15' rx='1'/%3E%3Crect x='14' y='4.5' width='4' height='15' rx='1'/%3E%3C/svg%3E") center/38px no-repeat,linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(20,20,26,.45);opacity:0;transition:opacity .3s}
+&[data-paused]::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M7.5 4.5v15l12-7.5z'/%3E%3C/svg%3E") center/38px no-repeat,linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(20,20,26,.45)}
+&[data-visible]::after{opacity:1}
+&:has([data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]:focus-visible)::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b0b0f'%3E%3Crect x='6' y='4.5' width='4' height='15' rx='1'/%3E%3Crect x='14' y='4.5' width='4' height='15' rx='1'/%3E%3C/svg%3E") center/38px no-repeat,#fff;border-color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.18)}
+&[data-paused]:has([data-ui=player-bottom-bar] [data-ui=player-button][data-name=play]:focus-visible)::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b0b0f'%3E%3Cpath d='M7.5 4.5v15l12-7.5z'/%3E%3C/svg%3E") center/38px no-repeat,#fff}
 }
