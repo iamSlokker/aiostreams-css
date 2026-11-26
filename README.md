@@ -18,5 +18,6 @@ What it changes:
 - **Player:** a minimal HUD with a big middle play button between back and forward, then a pause screen with the logo, overview, a PAUSED pill, the clock and the time.
 - **Player menus and extras:** subtitle, audio and other menus are small solid cards with a white focused row. The Skip button is white, the seek preview has a white frame, and the Up next card shows the still on top.
 - **Search:** the field, suggestions and recent searches in a left column, with the result rows on the right.
+- **Profile picker:** big round avatars with a white ring on the focused one, a coloured circle for profiles without a picture, no logo, and a matching PIN screen.
 - **Settings:** one floating glass sheet with a plain category list, a centred section title, compact cards, white switches and the search at the top right.
 - **Desktop app:** the same home look, plus bigger posters.

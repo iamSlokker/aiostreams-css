@@ -379,3 +379,37 @@ display:grid!important;grid-template-columns:330px minmax(0,1fr);column-gap:44px
 [data-ui=search-results]{margin:0!important}
 [data-ui=search-results]>*+*{margin-top:28px!important}
 }
+
+/* Profile picker, layout PU1: big circles, white ring on the focused one, no logo, quiet pill links. Also the PIN step that follows. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=sign-in][data-name=user-picker]{
+background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.07),transparent 60%),#070707!important;
+>div{max-width:1100px!important}
+[data-ui=brand-logo]{display:none!important}
+h1:not([data-ui]){font-size:36px!important;font-weight:800!important;letter-spacing:-.01em;line-height:1.2!important;color:#fff}
+[data-ui=user-picker]{gap:34px!important;margin-top:56px!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]){width:150px!important;gap:22px!important;outline:none!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile])>span{gap:22px!important}
+[data-ui=user-picker] [data-ui=avatar]{width:132px!important;height:132px!important;font-size:46px!important;font-weight:800!important;--tw-ring-color:transparent!important;transition:box-shadow .15s!important}
+[data-ui=user-picker-user]:nth-child(5n+1) [data-ui=avatar]{background:linear-gradient(135deg,#f5c84c,#e9893a)!important;color:rgba(0,0,0,.55)!important}
+[data-ui=user-picker-user]:nth-child(5n+2) [data-ui=avatar]{background:linear-gradient(135deg,#6ee7b7,#3b82f6)!important;color:rgba(0,0,0,.55)!important}
+[data-ui=user-picker-user]:nth-child(5n+3) [data-ui=avatar]{background:linear-gradient(135deg,#f472b6,#a855f7)!important;color:rgba(0,0,0,.55)!important}
+[data-ui=user-picker-user]:nth-child(5n+4) [data-ui=avatar]{background:linear-gradient(135deg,#94a3b8,#475569)!important;color:rgba(0,0,0,.55)!important}
+[data-ui=user-picker-user]:nth-child(5n+5) [data-ui=avatar]{background:linear-gradient(135deg,#fca5a5,#ef4444)!important;color:rgba(0,0,0,.55)!important}
+[data-ui=user-picker-server-tile] [data-ui=avatar]{opacity:1!important;background:rgba(255,255,255,.08)!important;border:1px dashed rgba(255,255,255,.25);color:#c9c9d1!important}
+[data-focus-frame]{transition:transform .15s!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]):is(:focus-visible,:hover) [data-focus-frame]{transform:scale(1.08)!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]):is(:focus-visible,:hover) [data-ui=avatar]{box-shadow:0 0 0 4px #070707,0 0 0 8px #fff!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]) .text-sm{font-size:17px!important;font-weight:600!important;color:#9a9aa3!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]):is(:focus-visible,:hover) .text-sm{color:#fff!important;font-weight:700!important}
+:is([data-ui=user-picker-user],[data-ui=user-picker-server-tile]) .text-xs{font-size:12.5px!important;color:#6f6f78!important;margin-top:2px}
+[data-focus-frame]>span.absolute{width:32px!important;height:32px!important;right:2px!important;bottom:2px!important;background:#16161b!important;color:#fff;--tw-ring-color:#070707!important}
+[data-ui=sign-in-links]{margin-top:64px!important;gap:10px!important}
+[data-ui=sign-in-links] .UI-Button__root{height:40px!important;padding:0 18px!important;border-radius:999px!important;background:rgba(255,255,255,.08)!important;border:0!important;font-size:14px!important;font-weight:600!important;color:#d0d0d8!important;outline:none!important}
+[data-ui=sign-in-links] .UI-Button__root:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important}
+form [data-ui=avatar]{width:132px!important;height:132px!important;font-size:46px!important;font-weight:800!important;background:linear-gradient(135deg,#e5e7eb,#9ca3af)!important;color:rgba(0,0,0,.55)!important}
+form [data-ui=page-title]{font-size:24px!important;font-weight:800!important}
+form input{height:50px!important;border-radius:14px!important;background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.12)!important;font-size:18px!important;text-align:center;letter-spacing:.3em;box-shadow:none!important}
+form input:focus-visible{border-color:#fff!important;box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+form button[type=submit]{height:48px!important;font-size:15px!important;font-weight:700!important}
+form button[type=submit]:focus-visible{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important;outline:none!important}
+}
