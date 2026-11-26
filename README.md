@@ -14,6 +14,9 @@ What it changes:
 
 - **TV home:** a single glass top bar with icons only, and the avatar alone at the top left. The hero follows the focused card, with one row at a time.
 - **Title page (TV and desktop):** the art and trailer sit on the right only. Everything else goes in one left column with no poster. Series show the seasons as pills and a row of episode cards with the text under the picture.
+- **Cast page:** a round photo, name, dates and bio in a left column, with the filmography grid on the right.
+- **All episodes:** the season dialog fills the screen with a grid of 16:9 cards, text under the picture.
+- **More info:** the full overview opens as a centred card with the artwork on top.
 - **Versions list:** a side sheet on the right with big cards and a white focus ring, without the filter bar.
 - **Player:** a minimal HUD with a big middle play button between back and forward, then a pause screen with the logo, overview, a PAUSED pill, the clock and the time.
 - **Player menus and extras:** subtitle, audio and other menus are small solid cards with a white focused row. The Skip button is white, the seek preview has a white frame, and the Up next card shows the still on top.
