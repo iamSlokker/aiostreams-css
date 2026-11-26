@@ -95,27 +95,27 @@ html[data-tv] [data-ui=hero-rows] [data-ui=media-row],html[data-host=desktop]:no
 html[data-host=desktop]:not([data-tv]){
 [data-ui=hero-rows]{scroll-snap-type:y mandatory}
 }
-html[data-tv] [data-ui=item-page]{
+:is(html[data-tv],html[data-host=desktop]) [data-ui=item-page]{
 [data-ui=item-backdrop]{height:100vh!important}
 [data-ui=backdrop-frame]{width:72%!important;-webkit-mask-image:linear-gradient(to right,transparent,#000 42%)!important;mask-image:linear-gradient(to right,transparent,#000 42%)!important}
 [data-ui=item-backdrop-shade][data-name=side]{display:none!important}
 [data-ui=item-backdrop-shade][data-name=bottom]{height:40%!important}
 }
-html[data-tv]{
+:is(html[data-tv],html[data-host=desktop]){
 [data-ui=item-trailer]{left:30%!important}
 [data-ui=item-trailer]>div:first-child>div:first-child{background:linear-gradient(to right,var(--background),transparent 20%)!important}
 [data-ui=item-trailer]>div:first-child>div:nth-child(2){height:28%!important}
 &:has([data-ui=item-page]) [data-ui=page-background][style*="url(%23s)"]{-webkit-mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important;mask-image:linear-gradient(to right,#000 30%,transparent 38%),linear-gradient(to bottom,transparent 80%,#000)!important}
 [data-ui=item-trailer-hint]{left:40%!important;justify-content:flex-end!important}
 }
-html[data-tv] [data-ui=item-page]{
+html[data-tv] [data-ui=item-page] [data-ui=item-body] [data-ui=media-row-nav]{display:none!important}
+:is(html[data-tv],html[data-host=desktop]) [data-ui=item-page]{
 [data-ui=item-body]{padding-top:8px!important;display:flex;flex-direction:column;gap:26px}
 [data-ui=item-body]>*{margin-top:0!important;margin-bottom:0!important}
 [data-ui=item-header]{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;max-width:500px}
 [data-ui=item-heading]{display:contents!important}
 [data-ui=item-header]>div:has(>[data-ui=item-heading]){display:flex!important;flex-direction:column;align-items:flex-start;gap:12px}
 [data-ui=item-header]>div:has(>[data-ui=item-heading])>*{margin:0!important}
-[data-ui=item-body] [data-ui=media-row-nav]{display:none!important}
 [data-ui=item-heading]>*{margin:0!important}
 [data-ui=item-poster],[data-ui=item-tagline]{display:none!important}
 [data-ui=item-logo]{max-height:100px!important;max-width:340px!important;order:1}
@@ -139,7 +139,7 @@ html[data-tv] [data-ui=item-page]{
 :is([data-ui=person-card-name],[data-ui=person-card-role]){-webkit-line-clamp:1!important}
 [data-ui=person-card-name]{margin-top:.35rem!important}
 [data-ui=media-row-title]{font-size:1.05rem!important}
-[data-ui=media-row]:has([data-ui=poster-card]) [data-ui=media-row-item]{flex-basis:7.6rem!important}
+[data-ui=media-row]:has([data-ui=poster-card]) [data-ui=media-row-item]{flex:0 0 7.6rem!important;max-width:7.6rem!important}
 [data-ui=poster-card-text]{display:none!important}
 [data-ui=section][data-name=episodes]>*{margin-top:0!important}
 [data-ui=season-poster]>:not([data-ui=season-name]):not([data-ui=season-indicator]){display:none!important}
