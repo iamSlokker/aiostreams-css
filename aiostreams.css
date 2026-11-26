@@ -587,3 +587,24 @@ display:grid!important;grid-template-columns:minmax(0,1fr) 380px;align-items:cen
 [data-ui=playlists-entry]:is(:focus-visible,:hover)>span:first-child{box-shadow:0 0 0 3px #121217,0 0 0 5px #fff}
 }
 }
+/* Calendar, layout CA1: a cleaner month grid - month arrows on the right, art faded in each day, today in white, a white ring on the focused day. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=calendar]{
+[data-ui=page-header]{gap:12px!important}
+[data-ui=calendar-nav]{margin-left:auto!important;gap:12px!important}
+[data-ui=calendar-month]{order:1;margin:0!important;min-width:150px;text-align:center;font-size:17px!important;font-weight:700!important}
+[data-ui=calendar-nav] [data-name=next]{order:2}
+[data-ui=calendar-nav] .UI-Button__root{width:36px!important;height:36px!important;border-radius:50%!important;background:rgba(255,255,255,.08)!important;color:#fff!important;outline:none!important}
+[data-ui=calendar-nav] .UI-Button__root:focus-visible{background:#fff!important;color:#0b0b0f!important}
+[data-ui=calendar-grid]{border:0!important;background:none!important;padding:0!important}
+[data-ui=calendar-grid]>div:first-child>div{font-size:11px!important;letter-spacing:.12em!important;color:#6f6f78!important}
+[data-ui=calendar-day]{height:clamp(96px,calc((100vh - 230px)/5),160px)!important;border-radius:12px!important;background:rgba(255,255,255,.035)!important;outline:none;transition:outline-color .15s!important}
+[data-ui=calendar-day]>span{font-size:13px!important;font-weight:700!important;color:#c9c9d1!important}
+[data-ui=calendar-day][data-today]::after{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6);pointer-events:none}
+[data-ui=calendar-day][data-today]>span{background:#fff!important;color:#0b0b0f!important;text-shadow:none!important}
+[data-ui=calendar-day]:is(:focus-visible,:has(:focus-visible)){outline:3px solid #fff!important;outline-offset:3px!important}
+[data-ui=calendar-entry]{outline:none!important}
+[data-ui=calendar-entry]:focus-visible{background:rgba(255,255,255,.18)!important}
+[data-ui=calendar-entry]>p:first-child{font-size:12px!important;font-weight:700!important}
+[data-ui=calendar-entry]:not([data-watched])>p:first-child{color:#fff!important}
+[data-ui=calendar-entry]>p:last-child{font-size:11px!important;font-weight:600;color:#c9c9d1!important}
+}
