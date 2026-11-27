@@ -726,3 +726,7 @@ background:linear-gradient(0deg,rgba(0,0,0,.97),rgba(0,0,0,.9) 62%,transparent)!
 [data-ui=player-chapter]:not(:has([data-ui=player-chapter-image])):focus-visible{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
 }
 }
+/* Focus colour: the app's --ring is purple; make every remote/keyboard focus ring white like the rest of this theme.
+   Dialog windows (Playlists and others) took focus themselves and got a ring around the whole window; that one is hidden. */
+:is(html[data-tv],html[data-host=desktop]){--ring:#fff!important}
+:is(html[data-tv],html[data-host=desktop]) :is([role=dialog],[role=alertdialog])[role]:focus-visible{outline-color:transparent!important}
