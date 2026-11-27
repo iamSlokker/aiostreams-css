@@ -14,6 +14,7 @@ What it changes:
 
 - **TV home:** a single glass top bar with icons only, and the avatar alone at the top left. The hero follows the focused card, with one row at a time.
 - **Top bar extras:** Favourites, Calendar, Activity, Downloads, Playlists and Watch together fold behind a "+" and slide open when the bar has focus or the mouse is over it.
+- **Card focus (glass):** the focused card grows a little and brightens, with a thin white ring, a soft glow and a diagonal glass sheen, after Nuvio HTPC's Shine and Card depth.
 - **Title page (TV and desktop):** the art and trailer sit on the right only. Everything else goes in one left column with no poster. Series show the seasons as pills and a row of episode cards with the text under the picture.
 - **Cast page:** a round photo, name, dates and bio in a left column, with the filmography grid on the right.
 - **All episodes:** the season dialog fills the screen with a grid of 16:9 cards, text under the picture.

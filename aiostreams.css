@@ -176,7 +176,7 @@ html[data-tv] [data-ui=item-page] [data-ui=item-body] [data-ui=media-row-nav]{di
 [data-ui=episode-title]{font-size:15px!important;font-weight:700!important}
 [data-ui=episode-meta]{margin-top:2px!important;font-size:12px!important;font-weight:600;color:#9a9aa3!important}
 [data-ui=episode-synopsis]{margin-top:4px!important;padding:0!important;font-size:12.5px!important;line-height:1.45!important;-webkit-line-clamp:2!important;color:#a4a4ad!important}
-[data-ui=episode-card]:has([data-ui=episode-title]:focus-visible) [data-ui=episode-image]{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff}
+[data-ui=episode-card]:has([data-ui=episode-title]:focus-visible) [data-ui=episode-image]{box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5);filter:brightness(1.1)}
 }
 /* Versions list, layout V1: a side sheet on the right, no filter bar. TV and desktop. */
 .UI-Modal__overlay:has([data-ui=dialog][data-name=versions]){
@@ -423,7 +423,7 @@ background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.06),transparent 5
 [data-ui=episode-title]{font-size:14.5px!important;font-weight:700!important}
 [data-ui=episode-meta]{font-size:12px!important;font-weight:600;color:#9a9aa3!important}
 [data-ui=episode-synopsis]{margin-top:5px;font-size:12.5px!important;line-height:1.45!important;color:#a4a4ad!important;-webkit-line-clamp:2!important}
-[data-ui=episode-list-item]:has([data-ui=episode-title]:focus-visible) [data-ui=episode-image]{box-shadow:0 0 0 3px #08080a,0 0 0 5px #fff}
+[data-ui=episode-list-item]:has([data-ui=episode-title]:focus-visible) [data-ui=episode-image]{box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5);filter:brightness(1.1)}
 }
 }
 
@@ -671,7 +671,7 @@ background:linear-gradient(0deg,rgba(0,0,0,.97),rgba(0,0,0,.9) 62%,transparent)!
 [data-ui=player-chapter]:not(:has([data-ui=player-chapter-image])){width:240px!important;padding:14px 16px!important;border-radius:16px!important;background:rgba(255,255,255,.07)!important}
 [data-ui=player-chapter]:not(:has([data-ui=player-chapter-image]))[data-current]{background:rgba(255,255,255,.14)!important}
 :is([data-ui=player-episode] [data-ui=episode-image],[data-ui=player-chapter-image]){transition:box-shadow .15s}
-[data-ui=player-episode]:focus-visible [data-ui=episode-image],[data-ui=player-chapter]:focus-visible [data-ui=player-chapter-image]{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+[data-ui=player-episode]:focus-visible [data-ui=episode-image],[data-ui=player-chapter]:focus-visible [data-ui=player-chapter-image]{box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5)!important;filter:brightness(1.1)}
 [data-ui=player-chapter]:not(:has([data-ui=player-chapter-image])):focus-visible{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
 }
 }
@@ -750,3 +750,13 @@ background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,
 [data-ui=page-actions]>.UI-Button__root:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important}
 }
 :is(html[data-tv],html[data-host=desktop]) [data-ui=dialog][data-name=versions]:has(>.UI-Drawer__header.sr-only) [data-ui=versions-count]{grid-column:1/3;padding:26px 0 0 26px!important;font-size:24px!important;font-weight:800!important;line-height:1.2!important;color:#fff!important}
+/* Card focus, layout GL2 (after Nuvio HTPC's Shine + Card depth): the focused card grows a little and brightens; its picture gets a thin white ring,
+   a soft white glow, a lift shadow and a diagonal glass sheen. The whole card scales so titles laid over the picture move with it. */
+:is(html[data-tv],html[data-host=desktop]){
+[data-focus=own]:has(>[data-focus-frame]){transition:transform .25s ease!important}
+[data-focus=own]:focus-visible:has(>[data-focus-frame]){transform:scale(1.04);z-index:2}
+[data-focus-frame]{transition:box-shadow .25s ease,filter .25s ease!important}
+[data-focus-frame]::before{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s ease;background:linear-gradient(120deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.08) 28%,transparent 46%,transparent 70%,rgba(255,255,255,.08) 100%)}
+[data-focus=own]:focus-visible [data-focus-frame]{outline:none!important;filter:brightness(1.1);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5)!important}
+[data-focus=own]:focus-visible [data-focus-frame]::before{opacity:1}
+}
