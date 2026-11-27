@@ -778,3 +778,16 @@ background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.75) 55%,rgba(0,0,0,
 >p{display:flex;flex-direction:column;align-items:center;gap:14px;margin:110px auto 0!important;max-width:460px;text-align:center;font-size:15px;line-height:1.5;color:#9a9aa3!important}
 >p::before{content:"";width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.07) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19.5h14'/%3E%3C/svg%3E") center/30px no-repeat}
 }
+/* Player error, layout ER2: like the pause screen and "Still watching" - a warning icon, a small CAN'T PLAY THIS label, the app's message
+   in large text and its buttons in a left column over a dark fade. The first (autofocused) action is white with the ring. */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=player-error]{
+background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,.5))!important;justify-content:flex-start!important;padding:0 80px!important;
+>div{max-width:660px!important;text-align:left!important}
+>div::before{content:"";display:block;width:56px;height:56px;margin-bottom:22px;border-radius:50%;background:rgba(255,255,255,.08) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.5 2.5 20h19z'/%3E%3Cpath d='M12 10v4.5M12 17.3v.2'/%3E%3C/svg%3E") center/26px no-repeat}
+>div>p{font-size:40px!important;font-weight:800!important;line-height:1.1!important}
+>div>p::before{content:"CAN'T PLAY THIS";display:block;margin-bottom:10px;font-size:11px;font-weight:700;letter-spacing:.14em;line-height:1.4;color:#9a9aa3}
+>div>div{flex-direction:row!important;flex-wrap:wrap;justify-content:flex-start!important;gap:10px!important;margin-top:30px!important}
+>div>div>button{height:46px!important;padding:0 22px!important;border-radius:999px!important;font-size:15px!important;font-weight:700!important;background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid rgba(255,255,255,.14)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;outline:none!important}
+>div>div>button.bg-white{background:#fff!important;color:#0b0b0f!important;border-color:#fff!important}
+>div>div>button:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 0 0 3px #0b0b0f,0 0 0 5px #fff!important}
+}

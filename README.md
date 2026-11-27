@@ -23,6 +23,7 @@ What it changes:
 - **Downloads (PC):** the same card header with the total and folder buttons, small caps section labels, each download as a solid card with a wide still, a white progress bar and round buttons.
 - **Player Episodes and Chapters:** a strip along the bottom with one row of wide stills, the season pills beside the title, a white tag on what is playing; the video stays visible above.
 - **Are you still watching?:** like the pause screen, with the question, Up next and the buttons on the left and the next episode's still as a big card on the right.
+- **Player error:** the same left-column look, with a warning icon, a small CAN'T PLAY THIS label, the message in large text and the buttons.
 - **Activity (history):** each day is a row of posters with a short caption; a grouped show opens its episodes as cards beside the poster.
 - **Playlists:** the panel opens as a centred window with the playlists as square cover cards.
 - **Calendar:** a cleaner month grid with the month arrows on the right, today in white and a white ring on the focused day.
