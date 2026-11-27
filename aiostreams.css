@@ -673,8 +673,52 @@ div:has(>[data-ui=party-code])>div{grid-row:1/span 2;grid-column:1;width:120px!i
 /* Top bar "+": Favourites, Calendar, Activity, Playlists and Watch together stay folded away behind a small + so the bar stays short,
    and slide in when the remote moves into the bar or the mouse is over it. Folded buttons are hidden from focus until then. */
 :is(html[data-tv],html[data-host=desktop]) [data-ui=top-tabs]{
-[data-ui=nav-item][data-ui=nav-item][data-ui=nav-item]:is([data-name=favourites],[data-name=calendar],[data-name=activity],[data-name=playlists],[data-name=party]){max-width:0!important;min-width:0!important;padding-inline:0!important;margin-inline:0!important;opacity:0;visibility:hidden;overflow:hidden;transition:max-width .25s ease,padding .25s ease,opacity .2s ease,visibility 0s .25s!important}
-&:is(:focus-within,:hover) [data-ui=nav-item][data-ui=nav-item][data-ui=nav-item]:is([data-name=favourites],[data-name=calendar],[data-name=activity],[data-name=playlists],[data-name=party]){max-width:90px!important;padding-inline:1.1rem!important;opacity:1;visibility:visible;transition:max-width .25s ease,padding .25s ease,opacity .2s ease .05s,visibility 0s!important}
+[data-ui=nav-item][data-ui=nav-item][data-ui=nav-item]:is([data-name=favourites],[data-name=calendar],[data-name=activity],[data-name=playlists],[data-name=party],[data-name=downloads]){max-width:0!important;min-width:0!important;padding-inline:0!important;margin-inline:0!important;opacity:0;visibility:hidden;overflow:hidden;transition:max-width .25s ease,padding .25s ease,opacity .2s ease,visibility 0s .25s!important}
+&:is(:focus-within,:hover) [data-ui=nav-item][data-ui=nav-item][data-ui=nav-item]:is([data-name=favourites],[data-name=calendar],[data-name=activity],[data-name=playlists],[data-name=party],[data-name=downloads]){max-width:90px!important;padding-inline:1.1rem!important;opacity:1;visibility:visible;transition:max-width .25s ease,padding .25s ease,opacity .2s ease .05s,visibility 0s!important}
 .glass-surface:not([data-ui=top-tabs-end])::after{content:"+";display:flex;align-items:center;justify-content:center;width:34px;height:40px;font-size:22px;font-weight:300;line-height:1;color:rgba(255,255,255,.55);transition:opacity .2s,width .25s}
 &:is(:focus-within,:hover) .glass-surface:not([data-ui=top-tabs-end])::after{opacity:0;width:0}
+}
+/* Player Episodes and Chapters, layout EP2/CH2: the right-hand drawers become a strip along the bottom - a title row (with the season pills) above
+   one row of wide stills that scrolls sideways; the video stays visible above, the playing item gets a white tag, the focused still a white ring. */
+:is(html[data-tv],html[data-host=desktop]){
+.UI-Drawer__overlay:has(+[data-ui=dialog]:is([data-name=episodes],[data-name=chapters])),[data-ui=dialog]:is([data-name=episodes],[data-name=chapters])~.UI-Drawer__overlay{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+&[data-tv] [data-ui=dialog]:is([data-name=episodes],[data-name=chapters])>button:last-child{display:none!important}
+&:has([data-ui=dialog]:is([data-name=episodes],[data-name=chapters])) [data-ui=player-controls]{opacity:0!important;transition:opacity .2s!important}
+[data-ui=dialog]:is([data-name=episodes],[data-name=chapters]){
+inset:auto 0 0 0!important;width:100%!important;max-width:none!important;height:auto!important;max-height:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+background:linear-gradient(0deg,rgba(0,0,0,.97),rgba(0,0,0,.9) 62%,transparent)!important;padding:130px 0 36px!important;
+--tw-enter-translate-x:0!important;--tw-enter-translate-y:100%!important;--tw-exit-translate-x:0!important;--tw-exit-translate-y:100%!important;
+>[data-ui=player-chapters-header]{align-items:baseline!important}
+>:is([data-ui=player-episodes-header],[data-ui=player-chapters-header]){display:flex;align-items:center;gap:16px;padding:0 56px 16px!important;margin:0!important}
+>:is([data-ui=player-episodes-header],[data-ui=player-chapters-header])>div:first-child{display:flex;align-items:baseline;gap:12px;padding:0!important;flex:none}
+>[data-ui=player-episodes-header]>div:first-child>p:first-child{display:none}
+>[data-ui=player-episodes-header]>div:first-child>p:last-child{font-size:22px!important;font-weight:800!important}
+>[data-ui=player-chapters-header]>p:first-child{font-size:22px!important;font-weight:800!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important}
+>[data-ui=player-chapters-header]>p:last-child{margin:0!important;font-size:14px!important;font-weight:600!important;color:#9a9aa3!important}
+[data-ui=player-episodes-seasons]{padding:0!important;margin:0!important;min-width:0}
+[data-ui=season-pill]{font-weight:600!important}
+[data-ui=season-pill]:not([data-selected]){background:rgba(255,255,255,.08)!important;color:#c9c9d1!important;border-color:transparent!important}
+[data-ui=season-pill]:focus-visible{box-shadow:0 0 0 2px #070707,0 0 0 4px #fff!important;outline:none!important}
+>:is([data-ui=player-episodes-list],[data-ui=player-chapters-list]),>div.overflow-hidden:not([data-ui]){display:flex!important;flex-direction:row!important;gap:16px!important;flex:none!important;overflow-x:auto!important;overflow-y:hidden!important;padding:6px 56px 8px!important;border:0!important;scroll-padding-inline:56px;scrollbar-width:none}
+>:is([data-ui=player-episodes-list],[data-ui=player-chapters-list])>*,>div.overflow-hidden:not([data-ui])>*{margin:0!important}
+>div.overflow-hidden:not([data-ui])>div{width:260px;flex:none;flex-direction:column;padding:0!important}
+>div.overflow-hidden:not([data-ui]) .aspect-video{width:100%!important;border-radius:12px!important}
+>button:last-child{top:120px!important;right:48px!important;width:38px;height:38px;border-radius:50%!important;background:rgba(255,255,255,.1)!important;color:#fff!important;opacity:1!important}
+>button:last-child:focus-visible{background:#fff!important;color:#0b0b0f!important;outline:none!important}
+[data-ui=player-episode]{width:260px!important;flex:none;flex-direction:column!important;align-items:stretch!important;gap:10px!important;padding:0!important;background:none!important;box-shadow:none!important;--tw-ring-color:transparent!important}
+[data-ui=player-episode] [data-ui=episode-image]{width:100%!important;border-radius:12px!important}
+[data-ui=player-episode]>div:nth-child(2){padding:0!important}
+[data-ui=episode-title]{font-size:15px!important;font-weight:700!important}
+:is([data-ui=player-episode],[data-ui=player-chapter]) span.text-white{display:inline-block;padding:1px 8px;border-radius:999px;background:#fff;color:#0b0b0f!important;font-size:11px;font-weight:800!important}
+[data-ui=player-chapter]{flex:none;padding:0!important;background:none!important;box-shadow:none!important;--tw-ring-color:transparent!important}
+[data-ui=player-chapter]:has([data-ui=player-chapter-image]){width:212px!important;gap:10px!important}
+[data-ui=player-chapter-image]{border-radius:12px!important}
+[data-ui=player-chapter]:has([data-ui=player-chapter-image])>div:last-child{padding:0!important}
+[data-ui=player-chapter]:has([data-ui=player-chapter-image]) p:first-child{font-size:14px!important;font-weight:700!important}
+[data-ui=player-chapter]:not(:has([data-ui=player-chapter-image])){width:240px!important;padding:14px 16px!important;border-radius:16px!important;background:rgba(255,255,255,.07)!important}
+[data-ui=player-chapter]:not(:has([data-ui=player-chapter-image]))[data-current]{background:rgba(255,255,255,.14)!important}
+:is([data-ui=player-episode] [data-ui=episode-image],[data-ui=player-chapter-image]){transition:box-shadow .15s}
+[data-ui=player-episode]:focus-visible [data-ui=episode-image],[data-ui=player-chapter]:focus-visible [data-ui=player-chapter-image]{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+[data-ui=player-chapter]:not(:has([data-ui=player-chapter-image])):focus-visible{box-shadow:0 0 0 3px #070707,0 0 0 5px #fff!important}
+}
 }
