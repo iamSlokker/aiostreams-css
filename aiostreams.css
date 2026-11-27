@@ -159,8 +159,8 @@ html[data-tv] [data-ui=item-page] [data-ui=item-body] [data-ui=media-row-nav]{di
 [data-ui=media-row]:has([data-ui=season-poster]) [data-ui=media-row-item]{flex-basis:auto!important}
 [data-ui=media-row]:has([data-ui=season-poster]) [data-ui=media-row-title]{display:none!important}
 /* Episodes, layout E1: seasons as pills (white = current), a row of 16:9 cards with the text under the picture. */
-[data-ui=season-poster]{width:auto!important;padding:8px 16px!important;border-radius:999px;background:rgba(255,255,255,.08);transition:background-color .15s,color .15s}
-[data-ui=season-poster] [data-ui=season-name]{font-size:14px!important;font-weight:600!important;color:#c9c9d1!important}
+[data-ui=season-poster]{width:auto!important;padding:8px 16px!important;border-radius:999px;background:rgba(255,255,255,.08);transition:background-color .15s,color .15s;display:inline-flex!important;align-items:center;justify-content:center}
+[data-ui=season-poster] [data-ui=season-name]{margin:0!important;font-size:14px!important;font-weight:600!important;color:#c9c9d1!important}
 [data-ui=season-poster][aria-selected=true]{background:#fff}
 [data-ui=season-poster][aria-selected=true] [data-ui=season-name]{color:#0b0b0f!important}
 [data-ui=season-poster]:focus-visible{outline:none!important;box-shadow:0 0 0 3px #070707,0 0 0 5px #fff}
