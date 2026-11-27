@@ -748,3 +748,33 @@ background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.75) 55%,rgba(0,0,0,
 [data-ui=still-watching-action][data-name=continue]{background:#fff!important;color:#0b0b0f!important;border-color:#fff!important}
 [data-ui=still-watching-action]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 0 0 3px #0b0b0f,0 0 0 5px #fff!important}
 }
+/* Downloads (PC), layout DL1: the title, total, folder and buttons in one solid card like Discover; sections get small caps labels;
+   each download is a solid card with a wide still, white progress bar and round buttons; a centred empty state. */
+:is(html[data-tv],html[data-host=desktop]) [data-page=downloads] [data-ui=page-body]>div{
+>div:first-child{display:flex!important;align-items:center;gap:14px;padding:16px 22px;border-radius:22px;background:#121217;border:1px solid rgba(255,255,255,.1)}
+>div:first-child>*{margin:0!important}
+>div:first-child>div{flex:1;min-width:0;flex-wrap:nowrap!important;gap:10px!important}
+[data-ui=page-title]{font-size:30px!important;font-weight:800!important;flex:none}
+[data-ui=downloads-summary]{display:flex;align-items:baseline;gap:8px;min-width:0;font-size:13.5px!important;font-weight:600;color:#9a9aa3!important}
+[data-ui=downloads-summary]>p+p::before{content:"\00b7";margin-right:8px}
+[data-ui=downloads-action]{height:36px!important;padding:0 16px!important;border-radius:999px!important;background:rgba(255,255,255,.08)!important;border-color:transparent!important;color:#e4e4ea!important;font-weight:600!important;outline:none!important}
+[data-ui=downloads-action]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important}
+[data-ui=downloads-section]>div:first-child>h2{font-size:11px!important;font-weight:700!important;letter-spacing:.14em;text-transform:uppercase;color:#9a9aa3!important;margin-left:4px}
+[data-ui=downloads-section]>div:last-child>*+*{margin-top:10px!important}
+[data-ui=downloads-show]>div:first-child p:first-child{font-size:17px!important;font-weight:800!important}
+[data-ui=downloads-show]>div:first-child{padding:0 4px}
+[data-ui=download]{align-items:center!important;gap:16px!important;padding:10px 14px 10px 10px!important;border-radius:18px!important;background:#121217!important;border:1px solid rgba(255,255,255,.07)!important}
+[data-ui=download-image]{width:150px!important;border-radius:10px!important;outline:none!important}
+[data-ui=download-image]:is(:focus-visible,:hover){box-shadow:0 0 0 3px #121217,0 0 0 5px #fff}
+[data-ui=download-title]{font-size:15px!important;font-weight:700!important}
+[data-ui=download-version]{font-size:12px!important;font-weight:600;color:#9a9aa3!important}
+[data-ui=download-status]{font-size:12.5px!important;font-weight:600}
+[data-ui=download-status].text-gray-300{color:#c9c9d1!important}
+[data-ui=download] .bg-brand-500{background:#fff!important}
+[data-ui=download] .h-1{height:4px!important;background:rgba(255,255,255,.14)!important}
+[data-ui=download] .h-1+span{font-size:12px!important;font-weight:600;color:#9a9aa3!important}
+[data-ui=download-action]{width:34px!important;height:34px!important;min-width:0!important;padding:0!important;border-radius:50%!important;background:rgba(255,255,255,.08)!important;color:#fff!important;border:0!important;outline:none!important}
+[data-ui=download-action]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important}
+>p{display:flex;flex-direction:column;align-items:center;gap:14px;margin:110px auto 0!important;max-width:460px;text-align:center;font-size:15px;line-height:1.5;color:#9a9aa3!important}
+>p::before{content:"";width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.07) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v11m-4.5-4.5L12 15l4.5-4.5M5 19.5h14'/%3E%3C/svg%3E") center/30px no-repeat}
+}
