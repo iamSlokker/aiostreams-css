@@ -763,4 +763,5 @@ background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,
 [data-ui=media-row] .UI-Carousel__content{padding-top:14px!important;margin-top:-14px!important;padding-bottom:20px!important;margin-bottom:-20px!important;padding-left:14px!important;margin-left:-20px!important}
 /* On the home screen the rows area scrolls each row a little low, so poster rows ended right at the screen edge; lift the row content so the focused card has room below. */
 [data-ui=hero-rows] [data-ui=media-row]{padding-bottom:30px!important}
+[data-ui=hero-rows]{margin-left:-30px!important;padding-left:30px!important}
 }
