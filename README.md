@@ -21,6 +21,7 @@ What it changes:
 - **Discover:** the title, tabs, sort and pickers sit in one solid card above a denser poster grid; genres get their own row.
 - **Favourites:** the same card header as Discover with a denser poster grid, and a centred empty state with a heart.
 - **Player Episodes and Chapters:** a strip along the bottom with one row of wide stills, the season pills beside the title, a white tag on what is playing; the video stays visible above.
+- **Are you still watching?:** like the pause screen, with the question, Up next and the buttons on the left and the next episode's still as a big card on the right.
 - **Activity (history):** each day is a row of posters with a short caption; a grouped show opens its episodes as cards beside the poster.
 - **Playlists:** the panel opens as a centred window with the playlists as square cover cards.
 - **Calendar:** a cleaner month grid with the month arrows on the right, today in white and a white ring on the focused day.

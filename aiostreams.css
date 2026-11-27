@@ -730,3 +730,21 @@ background:linear-gradient(0deg,rgba(0,0,0,.97),rgba(0,0,0,.9) 62%,transparent)!
    Dialog windows (Playlists and others) took focus themselves and got a ring around the whole window; that one is hidden. */
 :is(html[data-tv],html[data-host=desktop]){--ring:#fff!important}
 :is(html[data-tv],html[data-host=desktop]) :is([role=dialog],[role=alertdialog])[role]:focus-visible{outline-color:transparent!important}
+/* "Are you still watching?", layout SW2: like the pause screen - the question, "Up next" and the buttons in a left column over a dark fade,
+   the next episode's still as a big card on the right with an UP NEXT tag. Without a still it stays a single left column. */
+:is(html[data-tv],html[data-host=desktop]) [data-ui=still-watching]{
+background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.75) 55%,rgba(0,0,0,.55))!important;justify-content:flex-start!important;padding:0 80px!important;
+>div{max-width:none!important;width:100%;display:grid!important;grid-template-columns:minmax(0,440px);align-content:center;row-gap:28px;column-gap:80px;text-align:left!important;position:relative}
+>div>*{margin:0!important}
+>div:has(>[data-ui=still-watching-image]){grid-template-columns:minmax(0,440px) minmax(0,520px);justify-content:space-between}
+[data-ui=still-watching-image]{grid-column:2;grid-row:1/3;align-self:center;width:100%!important;border-radius:14px!important;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+>div:has(>[data-ui=still-watching-image])::after{content:"UP NEXT";grid-column:2;grid-row:1/3;align-self:start;justify-self:start;margin:14px 0 0 14px;padding:3px 10px;border-radius:999px;background:#fff;color:#0b0b0f;font-size:11px;font-weight:800;letter-spacing:.06em;z-index:1}
+>div>div:not(:last-child){grid-column:1;align-self:end}
+>div>div:not(:last-child)::before{content:"STILL THERE?";display:block;margin-bottom:10px;font-size:11px;font-weight:700;letter-spacing:.14em;color:#9a9aa3}
+>div>div:not(:last-child)>p:first-child{font-size:40px!important;font-weight:800!important;line-height:1.1!important}
+>div>div:not(:last-child)>p:last-child{margin-top:14px!important;font-size:16px!important;font-weight:600;color:#c9c9d1!important}
+>div>div:last-child{grid-column:1;flex-direction:row!important;justify-content:flex-start!important;gap:10px!important;align-self:start}
+[data-ui=still-watching-action]{height:46px!important;padding:0 24px!important;border-radius:999px!important;font-size:15px!important;font-weight:700!important;background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid rgba(255,255,255,.14)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;outline:none!important}
+[data-ui=still-watching-action][data-name=continue]{background:#fff!important;color:#0b0b0f!important;border-color:#fff!important}
+[data-ui=still-watching-action]:is(:focus-visible,:hover){background:#fff!important;color:#0b0b0f!important;border-color:#fff!important;box-shadow:0 0 0 3px #0b0b0f,0 0 0 5px #fff!important}
+}
