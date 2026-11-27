@@ -759,4 +759,6 @@ background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,
 [data-focus-frame]::before{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s ease;background:linear-gradient(120deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.08) 28%,transparent 46%,transparent 70%,rgba(255,255,255,.08) 100%)}
 [data-focus=own]:focus-visible [data-focus-frame]{outline:none!important;filter:brightness(1.1);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5)!important}
 [data-focus=own]:focus-visible [data-focus-frame]::before{opacity:1}
+/* Rows clip at their sliding area; give it 14px around (pulled back with negative margins) so the grown card, ring and glow are not cut. */
+[data-ui=media-row] .UI-Carousel__content{padding-top:14px!important;margin-top:-14px!important;padding-bottom:20px!important;margin-bottom:-20px!important;padding-left:14px!important;margin-left:-20px!important}
 }
