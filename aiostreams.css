@@ -766,3 +766,11 @@ background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.78) 55%,rgba(0,0,0,
 [data-ui=hero-rows] [data-ui=media-row]{padding-bottom:30px!important}
 [data-ui=hero-rows]{margin-left:-30px!important;padding-left:30px!important}
 }
+/* On the PC the mouse gets the same glass focus as the keyboard (the app only zooms the picture on hover; that zoom is dropped so both look the same). */
+@media (hover:hover){html[data-host=desktop]{
+[data-focus=own]:hover:has(>[data-focus-frame]){transform:scale(1.04);z-index:2}
+[data-ui=media-row][data-shape=wide] [data-focus=own]:hover:has(>[data-focus-frame]){transform:scale(1.03)}
+[data-focus=own]:hover [data-focus-frame]{outline:none!important;filter:brightness(1.1);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 26px rgba(255,255,255,.18),0 14px 30px rgba(0,0,0,.5)!important}
+[data-focus=own]:hover [data-focus-frame]::before{opacity:1}
+[data-focus=own]:hover [data-focus-frame] img{transform:none!important}
+}}
